@@ -3,6 +3,9 @@
 *Work in progress..     
 A text messaging app powered by IBM Watson.  
 
+## Team Members
+*Work in progress.. 
+
 ## Build Instruction 
 
 The build requirement including:
