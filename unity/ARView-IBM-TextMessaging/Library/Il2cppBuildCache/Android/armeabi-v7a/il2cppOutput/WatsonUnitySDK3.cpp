@@ -21393,7 +21393,7 @@ IL_0056:
 		Text_t6A2339DA6C05AE2646FC1A6C8FCC127391BE7FA1 * L_26 = __this->get_ResultsField_5();
 		String_t* L_27 = V_6;
 		NullCheck(L_26);
-		VirtActionInvoker1< String_t* >::Invoke(73 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_26, L_27);
+		VirtActionInvoker1< String_t* >::Invoke(75 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_26, L_27);
 		int32_t L_28 = V_4;
 		V_4 = ((int32_t)il2cpp_codegen_add((int32_t)L_28, (int32_t)1));
 	}
