@@ -19,8 +19,6 @@ installation(https://unity3d.com/get-unity/download)
 
 To build the app, you just need to:
 
-
-
 1. (If the unity project been changed/First time init) Open the `unity` project and build it: Menu -> Flutter -> Export Android
 2. setting `android/local.properties`：  
    `sdk.dir=<android sdk location>`  
@@ -31,9 +29,7 @@ To build the app, you just need to:
    `ndk.dir=<android NDK location>`    
 3. (Recommended) Installing flutter plugin in your working IDE
 4. `flutter run`
-
-> > > > > > > 9b90d4040a70d816f87a1e2791daf6f99bf630e9
-> > > > > > > If you got any installation problem, check your flutter installation using `flutter doctor`. Make sure `android NDK` and `flutter` are set correctly. Further question please dm @Cheong43 .
+If you got any installation problem, check your flutter installation using `flutter doctor`. Make sure `android NDK` and `flutter` are set correctly. Further question please dm @Cheong43 .
 
 ## Unity Project Folder
 
