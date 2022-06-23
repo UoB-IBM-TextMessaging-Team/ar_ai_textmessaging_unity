@@ -26,11 +26,11 @@ To build the app, you just need to:
    `flutter.buildMode=debug`  
    `flutter.compileSdkVersion=33`  
    `flutter.minSdkVersion=24`  
-   `ndk.dir=<android NDK location>`  
-3. `flutter run`
+   `ndk.dir=<android NDK location>`    
+3. (Recommended) Installing flutter plugin in your working IDE
+4. `flutter run`
 
-> > > > > > > 03ccbb9fef60059d34e8fc3565dc76732f248d84
-> > > > > > > If you got any installation problem, check your flutter installation using `flutter doctor`. Make sure `android NDK` and `flutter` are set correctly. Further question please dm @Cheong43 .
+If you got any installation problem, check your flutter installation using `flutter doctor`. Make sure `android NDK` and `flutter` are set correctly. Further question please dm @Cheong43 .
 
 ## Unity Project Folder
 
@@ -44,10 +44,10 @@ If you would like to build the unity project independently, just use the unity `
 
 ## How to use TTS in your script
 
-add code 
+add code
 
 GameObject.Find("TheText").SendMessage("sendTextToTTS", s);
 
-to your script.  
+to your script.
 
 s is the string you want to reading(the text user send or recevice on our app)
