@@ -143,13 +143,111 @@ extern void PlaceOnPlane_DiableVisual_mE6E1981246F974AD2FC3F9BCF9CD3EDE3E8F3801 
 extern void PlaceOnPlane__ctor_m6A163443FEBA846E4B12847076EC8482911BDAFC (void);
 // 0x00000048 System.Void PlaceOnPlane::.cctor()
 extern void PlaceOnPlane__cctor_m179DE5DFC70769680B7A879566D59E759EBB62AA (void);
-// 0x00000049 System.Void PlacementIndicator::Start()
+// 0x00000049 System.Void TextToSpeech::Start()
+extern void TextToSpeech_Start_m90F795261E343DC7623902F22D1F807E0A3F077B (void);
+// 0x0000004A System.Void TextToSpeech::Update()
+extern void TextToSpeech_Update_m3E13EB71A4B9EA7F976104CCA5C49C78B42A64D4 (void);
+// 0x0000004B System.Collections.IEnumerator TextToSpeech::CreateService()
+extern void TextToSpeech_CreateService_mDAB93474E84D3F20D8F54CEA16AB1AA8CB8DD9DE (void);
+// 0x0000004C System.Collections.IEnumerator TextToSpeech::ProcessText()
+extern void TextToSpeech_ProcessText_m89704603058B30D3EE22E6EFE161F6CD3F0D9F04 (void);
+// 0x0000004D System.Void TextToSpeech::PlayClip(UnityEngine.AudioClip)
+extern void TextToSpeech_PlayClip_m624FDCD2692E91B06055F67A1F833F379EFD4CC6 (void);
+// 0x0000004E System.Void TextToSpeech::AddTextToQueue(System.String)
+extern void TextToSpeech_AddTextToQueue_m3995CB90E72D7A0FA787FA1804A15B8E880939DC (void);
+// 0x0000004F TextToSpeech/ProcessingStatus TextToSpeech::Status()
+extern void TextToSpeech_Status_m71E1EC7051B35D1FD1681FD9F2FB99BDA728626B (void);
+// 0x00000050 System.Boolean TextToSpeech::ServiceReady()
+extern void TextToSpeech_ServiceReady_mC8272E1C0B3D2BA5AB2EAE344C52EC00761EB868 (void);
+// 0x00000051 System.Boolean TextToSpeech::IsFinished()
+extern void TextToSpeech_IsFinished_m6BB32E277A306DC3D840C6EA3DEE8F6844116B7C (void);
+// 0x00000052 System.Void TextToSpeech::.ctor()
+extern void TextToSpeech__ctor_m06928F76F5911F812861349D676AF1356E3D7892 (void);
+// 0x00000053 System.Void TextToSpeech::<Start>b__16_0(System.String)
+extern void TextToSpeech_U3CStartU3Eb__16_0_m4E3C9E85D77E1E262F8B7DF5C4DC57809D8B3FED (void);
+// 0x00000054 System.Void TextToSpeech::<Start>b__16_1(System.String)
+extern void TextToSpeech_U3CStartU3Eb__16_1_m1FA4B1467E8B24FBE81CDE78149D58BE22871320 (void);
+// 0x00000055 System.Void TextToSpeech::<Start>b__16_2(System.String)
+extern void TextToSpeech_U3CStartU3Eb__16_2_mDD849B386915D5E7C541E54ECBC1DDBC11AC9624 (void);
+// 0x00000056 System.Void TextToSpeech/<CreateService>d__18::.ctor(System.Int32)
+extern void U3CCreateServiceU3Ed__18__ctor_mFB8AD09794EC869E6E5CF74AFD19F2B3DBC5C8B2 (void);
+// 0x00000057 System.Void TextToSpeech/<CreateService>d__18::System.IDisposable.Dispose()
+extern void U3CCreateServiceU3Ed__18_System_IDisposable_Dispose_m7A290FE272F110F563BD6C5467A9F4E634BA9651 (void);
+// 0x00000058 System.Boolean TextToSpeech/<CreateService>d__18::MoveNext()
+extern void U3CCreateServiceU3Ed__18_MoveNext_m54C6109FF28BB102CC7F1154BF309FCB4301DDC8 (void);
+// 0x00000059 System.Object TextToSpeech/<CreateService>d__18::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+extern void U3CCreateServiceU3Ed__18_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mA0117D703AD1DDAF88C67A7772AEAB22C27FD39C (void);
+// 0x0000005A System.Void TextToSpeech/<CreateService>d__18::System.Collections.IEnumerator.Reset()
+extern void U3CCreateServiceU3Ed__18_System_Collections_IEnumerator_Reset_m5A71387A1B5C9B47F7B665818BDF58C21973E54C (void);
+// 0x0000005B System.Object TextToSpeech/<CreateService>d__18::System.Collections.IEnumerator.get_Current()
+extern void U3CCreateServiceU3Ed__18_System_Collections_IEnumerator_get_Current_m095C370AF3419309FBD8A1458463E7EA6EA7987A (void);
+// 0x0000005C System.Void TextToSpeech/<>c__DisplayClass19_0::.ctor()
+extern void U3CU3Ec__DisplayClass19_0__ctor_mA35FDF624511E112BAAFD2F42DE625C72F21D6E4 (void);
+// 0x0000005D System.Void TextToSpeech/<>c__DisplayClass19_0::<ProcessText>b__0(IBM.Cloud.SDK.DetailedResponse`1<System.Byte[]>,IBM.Cloud.SDK.IBMError)
+extern void U3CU3Ec__DisplayClass19_0_U3CProcessTextU3Eb__0_mFF0B5D2B0A65D88E91003100C213A3AA70E14E56 (void);
+// 0x0000005E System.Void TextToSpeech/<ProcessText>d__19::.ctor(System.Int32)
+extern void U3CProcessTextU3Ed__19__ctor_m423158CD5CC3C638591F48A0A2A2F72591DFB26E (void);
+// 0x0000005F System.Void TextToSpeech/<ProcessText>d__19::System.IDisposable.Dispose()
+extern void U3CProcessTextU3Ed__19_System_IDisposable_Dispose_mF25DA8089C52CC1E1AAB978BDF69FAFE5DB7FB38 (void);
+// 0x00000060 System.Boolean TextToSpeech/<ProcessText>d__19::MoveNext()
+extern void U3CProcessTextU3Ed__19_MoveNext_m9E41A3A7B4BB0B1C52C08859894547C2019F9560 (void);
+// 0x00000061 System.Object TextToSpeech/<ProcessText>d__19::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+extern void U3CProcessTextU3Ed__19_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mA50725A44632FA671DF64D327CACFA9EC7D0A70D (void);
+// 0x00000062 System.Void TextToSpeech/<ProcessText>d__19::System.Collections.IEnumerator.Reset()
+extern void U3CProcessTextU3Ed__19_System_Collections_IEnumerator_Reset_m7CE82DF69A54768774615AE03E88E7E34FF11CB5 (void);
+// 0x00000063 System.Object TextToSpeech/<ProcessText>d__19::System.Collections.IEnumerator.get_Current()
+extern void U3CProcessTextU3Ed__19_System_Collections_IEnumerator_get_Current_mD9E88F8611BC6A85E950453B6761DF20E5222066 (void);
+// 0x00000064 System.Void WatsonSettings::.ctor()
+extern void WatsonSettings__ctor_mA0F70ED89036D367A2F99262AADA2D0A969B3026 (void);
+// 0x00000065 System.Void DemoFree::Start()
+extern void DemoFree_Start_mF035D16BFA9D556694A37515E317D5D1835DBE1B (void);
+// 0x00000066 System.Void DemoFree::Update()
+extern void DemoFree_Update_mAC9441967F36394F11D34B8BCF278F2D4A8DA538 (void);
+// 0x00000067 System.Void DemoFree::OnGUI()
+extern void DemoFree_OnGUI_m0542D1C7486F5E62502C08C45ECE9F223B54F8ED (void);
+// 0x00000068 System.Void DemoFree::.ctor()
+extern void DemoFree__ctor_m8FCE37A6924746C0AB970D22F67FA8279BBEF2EB (void);
+// 0x00000069 System.Void FreeCameraLogic::Start()
+extern void FreeCameraLogic_Start_mB9657FFFC5A3E9463C23511B1749803786DCBE3B (void);
+// 0x0000006A System.Void FreeCameraLogic::SwitchTarget(System.Int32)
+extern void FreeCameraLogic_SwitchTarget_mE943E58E9F89F43A9BD49B07930242A976099921 (void);
+// 0x0000006B System.Void FreeCameraLogic::NextTarget()
+extern void FreeCameraLogic_NextTarget_m01283F08F4D9298B9CFEE999A333D29BBAC7BEFF (void);
+// 0x0000006C System.Void FreeCameraLogic::PreviousTarget()
+extern void FreeCameraLogic_PreviousTarget_mD1C7835378097C1246FEDD1293E262162C4A40C3 (void);
+// 0x0000006D System.Void FreeCameraLogic::Update()
+extern void FreeCameraLogic_Update_m3D0069F79B36562038489F29F90BEEB9EA50002C (void);
+// 0x0000006E System.Void FreeCameraLogic::LateUpdate()
+extern void FreeCameraLogic_LateUpdate_m4A98F6BA40FAB1B2DDE2923E99E035840257588F (void);
+// 0x0000006F System.Void FreeCameraLogic::.ctor()
+extern void FreeCameraLogic__ctor_mD3F0A83B8E2136EF36C5E0FE9DC64B57C64348A9 (void);
+// 0x00000070 System.Void SimpleSampleCharacterControl::Awake()
+extern void SimpleSampleCharacterControl_Awake_m287DB3D38A7CC534BC97ECD8E2750DBE1754E47C (void);
+// 0x00000071 System.Void SimpleSampleCharacterControl::OnCollisionEnter(UnityEngine.Collision)
+extern void SimpleSampleCharacterControl_OnCollisionEnter_m9E2E373C200F57A19ACFB1C22823F02A281D7998 (void);
+// 0x00000072 System.Void SimpleSampleCharacterControl::OnCollisionStay(UnityEngine.Collision)
+extern void SimpleSampleCharacterControl_OnCollisionStay_mD1E06AB827255192269BBE3CB0B18702FEBB5643 (void);
+// 0x00000073 System.Void SimpleSampleCharacterControl::OnCollisionExit(UnityEngine.Collision)
+extern void SimpleSampleCharacterControl_OnCollisionExit_m5D3B6677CB498AE1594D2EE3CB002762D3EC2981 (void);
+// 0x00000074 System.Void SimpleSampleCharacterControl::Update()
+extern void SimpleSampleCharacterControl_Update_m958658CD4B67BC3B87FC3C87C2A980A5D2B73134 (void);
+// 0x00000075 System.Void SimpleSampleCharacterControl::FixedUpdate()
+extern void SimpleSampleCharacterControl_FixedUpdate_m780F8AD4E1FDA9C65FA4D05DD476A218585D7EF3 (void);
+// 0x00000076 System.Void SimpleSampleCharacterControl::TankUpdate()
+extern void SimpleSampleCharacterControl_TankUpdate_m24EF6E3DC6E33B5403B32353FC7AA8F1DB524D5C (void);
+// 0x00000077 System.Void SimpleSampleCharacterControl::DirectUpdate()
+extern void SimpleSampleCharacterControl_DirectUpdate_m67B32E11B0E171829AF8A6C0A83F9BD3708C79C1 (void);
+// 0x00000078 System.Void SimpleSampleCharacterControl::JumpingAndLanding()
+extern void SimpleSampleCharacterControl_JumpingAndLanding_m5D61D960A5523EDF823A477884C88CDDEFD80DE2 (void);
+// 0x00000079 System.Void SimpleSampleCharacterControl::.ctor()
+extern void SimpleSampleCharacterControl__ctor_m91BE0AADB25BB7C6B6BFD0AA78A60DD729507F66 (void);
+// 0x0000007A System.Void PlacementIndicator::Start()
 extern void PlacementIndicator_Start_mC0F1E7B8F84514D2EDEA712785CDC9399A376200 (void);
-// 0x0000004A System.Void PlacementIndicator::Update()
+// 0x0000007B System.Void PlacementIndicator::Update()
 extern void PlacementIndicator_Update_m04B65B8903A034EA4C717E34BE6B8EF861382FE4 (void);
-// 0x0000004B System.Void PlacementIndicator::.ctor()
+// 0x0000007C System.Void PlacementIndicator::.ctor()
 extern void PlacementIndicator__ctor_mC5EF49C57C7F6519CA9E925EC1A0B13C7D3A08BE (void);
-static Il2CppMethodPointer s_methodPointers[75] = 
+static Il2CppMethodPointer s_methodPointers[124] = 
 {
 	NULL,
 	NULL,
@@ -223,11 +321,60 @@ static Il2CppMethodPointer s_methodPointers[75] =
 	PlaceOnPlane_DiableVisual_mE6E1981246F974AD2FC3F9BCF9CD3EDE3E8F3801,
 	PlaceOnPlane__ctor_m6A163443FEBA846E4B12847076EC8482911BDAFC,
 	PlaceOnPlane__cctor_m179DE5DFC70769680B7A879566D59E759EBB62AA,
+	TextToSpeech_Start_m90F795261E343DC7623902F22D1F807E0A3F077B,
+	TextToSpeech_Update_m3E13EB71A4B9EA7F976104CCA5C49C78B42A64D4,
+	TextToSpeech_CreateService_mDAB93474E84D3F20D8F54CEA16AB1AA8CB8DD9DE,
+	TextToSpeech_ProcessText_m89704603058B30D3EE22E6EFE161F6CD3F0D9F04,
+	TextToSpeech_PlayClip_m624FDCD2692E91B06055F67A1F833F379EFD4CC6,
+	TextToSpeech_AddTextToQueue_m3995CB90E72D7A0FA787FA1804A15B8E880939DC,
+	TextToSpeech_Status_m71E1EC7051B35D1FD1681FD9F2FB99BDA728626B,
+	TextToSpeech_ServiceReady_mC8272E1C0B3D2BA5AB2EAE344C52EC00761EB868,
+	TextToSpeech_IsFinished_m6BB32E277A306DC3D840C6EA3DEE8F6844116B7C,
+	TextToSpeech__ctor_m06928F76F5911F812861349D676AF1356E3D7892,
+	TextToSpeech_U3CStartU3Eb__16_0_m4E3C9E85D77E1E262F8B7DF5C4DC57809D8B3FED,
+	TextToSpeech_U3CStartU3Eb__16_1_m1FA4B1467E8B24FBE81CDE78149D58BE22871320,
+	TextToSpeech_U3CStartU3Eb__16_2_mDD849B386915D5E7C541E54ECBC1DDBC11AC9624,
+	U3CCreateServiceU3Ed__18__ctor_mFB8AD09794EC869E6E5CF74AFD19F2B3DBC5C8B2,
+	U3CCreateServiceU3Ed__18_System_IDisposable_Dispose_m7A290FE272F110F563BD6C5467A9F4E634BA9651,
+	U3CCreateServiceU3Ed__18_MoveNext_m54C6109FF28BB102CC7F1154BF309FCB4301DDC8,
+	U3CCreateServiceU3Ed__18_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mA0117D703AD1DDAF88C67A7772AEAB22C27FD39C,
+	U3CCreateServiceU3Ed__18_System_Collections_IEnumerator_Reset_m5A71387A1B5C9B47F7B665818BDF58C21973E54C,
+	U3CCreateServiceU3Ed__18_System_Collections_IEnumerator_get_Current_m095C370AF3419309FBD8A1458463E7EA6EA7987A,
+	U3CU3Ec__DisplayClass19_0__ctor_mA35FDF624511E112BAAFD2F42DE625C72F21D6E4,
+	U3CU3Ec__DisplayClass19_0_U3CProcessTextU3Eb__0_mFF0B5D2B0A65D88E91003100C213A3AA70E14E56,
+	U3CProcessTextU3Ed__19__ctor_m423158CD5CC3C638591F48A0A2A2F72591DFB26E,
+	U3CProcessTextU3Ed__19_System_IDisposable_Dispose_mF25DA8089C52CC1E1AAB978BDF69FAFE5DB7FB38,
+	U3CProcessTextU3Ed__19_MoveNext_m9E41A3A7B4BB0B1C52C08859894547C2019F9560,
+	U3CProcessTextU3Ed__19_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mA50725A44632FA671DF64D327CACFA9EC7D0A70D,
+	U3CProcessTextU3Ed__19_System_Collections_IEnumerator_Reset_m7CE82DF69A54768774615AE03E88E7E34FF11CB5,
+	U3CProcessTextU3Ed__19_System_Collections_IEnumerator_get_Current_mD9E88F8611BC6A85E950453B6761DF20E5222066,
+	WatsonSettings__ctor_mA0F70ED89036D367A2F99262AADA2D0A969B3026,
+	DemoFree_Start_mF035D16BFA9D556694A37515E317D5D1835DBE1B,
+	DemoFree_Update_mAC9441967F36394F11D34B8BCF278F2D4A8DA538,
+	DemoFree_OnGUI_m0542D1C7486F5E62502C08C45ECE9F223B54F8ED,
+	DemoFree__ctor_m8FCE37A6924746C0AB970D22F67FA8279BBEF2EB,
+	FreeCameraLogic_Start_mB9657FFFC5A3E9463C23511B1749803786DCBE3B,
+	FreeCameraLogic_SwitchTarget_mE943E58E9F89F43A9BD49B07930242A976099921,
+	FreeCameraLogic_NextTarget_m01283F08F4D9298B9CFEE999A333D29BBAC7BEFF,
+	FreeCameraLogic_PreviousTarget_mD1C7835378097C1246FEDD1293E262162C4A40C3,
+	FreeCameraLogic_Update_m3D0069F79B36562038489F29F90BEEB9EA50002C,
+	FreeCameraLogic_LateUpdate_m4A98F6BA40FAB1B2DDE2923E99E035840257588F,
+	FreeCameraLogic__ctor_mD3F0A83B8E2136EF36C5E0FE9DC64B57C64348A9,
+	SimpleSampleCharacterControl_Awake_m287DB3D38A7CC534BC97ECD8E2750DBE1754E47C,
+	SimpleSampleCharacterControl_OnCollisionEnter_m9E2E373C200F57A19ACFB1C22823F02A281D7998,
+	SimpleSampleCharacterControl_OnCollisionStay_mD1E06AB827255192269BBE3CB0B18702FEBB5643,
+	SimpleSampleCharacterControl_OnCollisionExit_m5D3B6677CB498AE1594D2EE3CB002762D3EC2981,
+	SimpleSampleCharacterControl_Update_m958658CD4B67BC3B87FC3C87C2A980A5D2B73134,
+	SimpleSampleCharacterControl_FixedUpdate_m780F8AD4E1FDA9C65FA4D05DD476A218585D7EF3,
+	SimpleSampleCharacterControl_TankUpdate_m24EF6E3DC6E33B5403B32353FC7AA8F1DB524D5C,
+	SimpleSampleCharacterControl_DirectUpdate_m67B32E11B0E171829AF8A6C0A83F9BD3708C79C1,
+	SimpleSampleCharacterControl_JumpingAndLanding_m5D61D960A5523EDF823A477884C88CDDEFD80DE2,
+	SimpleSampleCharacterControl__ctor_m91BE0AADB25BB7C6B6BFD0AA78A60DD729507F66,
 	PlacementIndicator_Start_mC0F1E7B8F84514D2EDEA712785CDC9399A376200,
 	PlacementIndicator_Update_m04B65B8903A034EA4C717E34BE6B8EF861382FE4,
 	PlacementIndicator__ctor_mC5EF49C57C7F6519CA9E925EC1A0B13C7D3A08BE,
 };
-static const int32_t s_InvokerIndices[75] = 
+static const int32_t s_InvokerIndices[124] = 
 {
 	-1,
 	-1,
@@ -237,73 +384,122 @@ static const int32_t s_InvokerIndices[75] =
 	-1,
 	-1,
 	-1,
-	3305,
-	3305,
-	3305,
-	3305,
-	3305,
-	2757,
-	3305,
-	3305,
-	3305,
-	2740,
-	3305,
-	3305,
-	3305,
-	3305,
-	3305,
-	4674,
-	5105,
-	5174,
-	5174,
-	5174,
-	3305,
+	3313,
+	3313,
+	3313,
+	3313,
+	3313,
+	2765,
+	3313,
+	3313,
+	3313,
+	2748,
+	3313,
+	3313,
+	3313,
+	3313,
+	3313,
+	4699,
+	5131,
+	5200,
+	5200,
+	5200,
+	3313,
 	-1,
 	-1,
 	-1,
 	-1,
-	4978,
+	5003,
 	-1,
-	702,
-	2757,
-	3305,
-	5151,
-	2757,
-	2757,
-	2757,
-	2757,
-	3305,
-	1663,
-	3305,
-	3305,
-	3305,
-	2757,
-	2757,
-	2757,
-	2757,
-	3305,
-	5174,
-	1637,
-	2757,
-	931,
-	2757,
-	1637,
-	2757,
-	931,
-	2757,
-	3263,
-	2757,
-	3263,
-	2757,
-	3305,
-	1963,
-	3305,
-	3305,
-	3305,
-	5174,
-	3305,
-	3305,
-	3305,
+	707,
+	2765,
+	3313,
+	5177,
+	2765,
+	2765,
+	2765,
+	2765,
+	3313,
+	1671,
+	3313,
+	3313,
+	3313,
+	2765,
+	2765,
+	2765,
+	2765,
+	3313,
+	5200,
+	1645,
+	2765,
+	937,
+	2765,
+	1645,
+	2765,
+	937,
+	2765,
+	3271,
+	2765,
+	3271,
+	2765,
+	3313,
+	1971,
+	3313,
+	3313,
+	3313,
+	5200,
+	3313,
+	3313,
+	3271,
+	3271,
+	2765,
+	2765,
+	3253,
+	3228,
+	3228,
+	3313,
+	2765,
+	2765,
+	2765,
+	2748,
+	3313,
+	3228,
+	3271,
+	3313,
+	3271,
+	3313,
+	1646,
+	2748,
+	3313,
+	3228,
+	3271,
+	3313,
+	3271,
+	3313,
+	3313,
+	3313,
+	3313,
+	3313,
+	3313,
+	2748,
+	3313,
+	3313,
+	3313,
+	3313,
+	3313,
+	3313,
+	2765,
+	2765,
+	2765,
+	3313,
+	3313,
+	3313,
+	3313,
+	3313,
+	3313,
+	3313,
+	3313,
+	3313,
 };
 static const Il2CppTokenRangePair s_rgctxIndices[3] = 
 {
@@ -334,23 +530,23 @@ static const Il2CppRGCTXDefinition s_rgctxValues[31] =
 	{ (Il2CppRGCTXDataType)2, 809 },
 	{ (Il2CppRGCTXDataType)2, 951 },
 	{ (Il2CppRGCTXDataType)2, 1008 },
-	{ (Il2CppRGCTXDataType)2, 4905 },
-	{ (Il2CppRGCTXDataType)3, 11641 },
+	{ (Il2CppRGCTXDataType)2, 4912 },
+	{ (Il2CppRGCTXDataType)3, 11643 },
 	{ (Il2CppRGCTXDataType)1, 582 },
-	{ (Il2CppRGCTXDataType)3, 22564 },
-	{ (Il2CppRGCTXDataType)3, 17759 },
+	{ (Il2CppRGCTXDataType)3, 22584 },
+	{ (Il2CppRGCTXDataType)3, 17776 },
 	{ (Il2CppRGCTXDataType)2, 2405 },
 	{ (Il2CppRGCTXDataType)3, 8871 },
-	{ (Il2CppRGCTXDataType)2, 3636 },
-	{ (Il2CppRGCTXDataType)3, 11640 },
-	{ (Il2CppRGCTXDataType)3, 22554 },
+	{ (Il2CppRGCTXDataType)2, 3637 },
+	{ (Il2CppRGCTXDataType)3, 11642 },
+	{ (Il2CppRGCTXDataType)3, 22574 },
 };
 extern const CustomAttributesCacheGenerator g_AssemblyU2DCSharp_AttributeGenerators[];
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	75,
+	124,
 	s_methodPointers,
 	0,
 	NULL,

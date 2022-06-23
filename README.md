@@ -4,9 +4,10 @@
 A text messaging app powered by IBM Watson.  
 
 ## Team Members
+
 *Work in progress.. 
 
-## Build Instruction 
+## Build Instruction
 
 The build requirement including:
 
@@ -18,10 +19,10 @@ installation(https://unity3d.com/get-unity/download)
 
 To build the app, you just need to:
 
-  1. (If the unity project been changed) Open the `unity` project and build it: Menu -> Flutter -> Export Android
-  2. setting android NDK location(On `android/local.properties` ,add a line: `ndk.dir=<NDK location>`)
-  3. `flutter run`
- 
+1. (If the unity project been changed) Open the `unity` project and build it: Menu -> Flutter -> Export Android
+2. setting android NDK location(On `android/local.properties` ,add a line: `ndk.dir=<NDK location>`)
+3. `flutter run`
+
 If you got any installation problem, check your flutter installation using `flutter doctor`. Make sure `android NDK` and `flutter` are set correctly. Further question please dm @Cheong43 .
 
 ## Unity Project Folder
@@ -31,3 +32,13 @@ If you got any installation problem, check your flutter installation using `flut
 ## Trouble Shooting
 
 *Work in progress..     
+
+## How to use TTS in your script
+
+add code 
+
+GameObject.Find("TheText").SendMessage("sendTextToTTS", s);
+
+to your script.  
+
+s is the string you want to reading(the text user send or recevice on our app)

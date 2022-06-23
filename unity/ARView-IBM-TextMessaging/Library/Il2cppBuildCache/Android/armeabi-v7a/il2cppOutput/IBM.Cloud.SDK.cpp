@@ -27926,7 +27926,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FrameRateCounter_Update_mFA360A899EDBEA0
 		String_t* L_9;
 		L_9 = String_Format_mB3D38E5238C3164DB4D7D29339D9E225A4496D17(_stringLiteralB062586C8903B7ACECD5511FF254C2FC443B4352, L_8, /*hidden argument*/NULL);
 		NullCheck(L_5);
-		VirtActionInvoker1< String_t* >::Invoke(73 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_5, L_9);
+		VirtActionInvoker1< String_t* >::Invoke(75 /* System.Void UnityEngine.UI.Text::set_text(System.String) */, L_5, L_9);
 	}
 
 IL_0068:

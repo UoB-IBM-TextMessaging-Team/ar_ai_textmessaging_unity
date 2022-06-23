@@ -3,6 +3,11 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - PlaceOnPlane
     - PlacementIndicator
+    - SimpleSampleCharacterControl
+    - TextToSpeech
+    - WatsonSettings
+    IBM.Cloud.SDK.dll:
+    - IBM.Cloud.SDK.Utilities.Runnable
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.XR.ARCore.Editor.dll:
@@ -33,6 +38,8 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.UI.LayoutElement
   sceneClasses:
     Assets/Scenes/Main.unity:
     - Class: 1
@@ -53,9 +60,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 64
+    - Class: 54
       Script: {instanceID: 0}
-    - Class: 65
+    - Class: 64
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
@@ -64,6 +71,8 @@ ScriptsOnlyBuild:
     - Class: 83
       Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
@@ -74,40 +83,50 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1524}
+      Script: {instanceID: 1532}
     - Class: 114
-      Script: {instanceID: 1682}
+      Script: {instanceID: 1690}
     - Class: 114
-      Script: {instanceID: 2912}
+      Script: {instanceID: 1866}
     - Class: 114
-      Script: {instanceID: 3024}
+      Script: {instanceID: 2900}
     - Class: 114
-      Script: {instanceID: 3794}
+      Script: {instanceID: 2930}
     - Class: 114
-      Script: {instanceID: 4046}
+      Script: {instanceID: 3042}
     - Class: 114
-      Script: {instanceID: 4054}
+      Script: {instanceID: 3812}
     - Class: 114
-      Script: {instanceID: 4062}
+      Script: {instanceID: 4064}
     - Class: 114
-      Script: {instanceID: 4608}
+      Script: {instanceID: 4072}
     - Class: 114
-      Script: {instanceID: 4696}
+      Script: {instanceID: 4080}
     - Class: 114
-      Script: {instanceID: 5096}
+      Script: {instanceID: 4626}
     - Class: 114
-      Script: {instanceID: 5438}
+      Script: {instanceID: 4714}
     - Class: 114
-      Script: {instanceID: 5766}
+      Script: {instanceID: 5114}
     - Class: 114
-      Script: {instanceID: 5980}
+      Script: {instanceID: 5456}
     - Class: 114
-      Script: {instanceID: 6104}
+      Script: {instanceID: 5784}
     - Class: 114
-      Script: {instanceID: 6320}
+      Script: {instanceID: 5998}
+    - Class: 114
+      Script: {instanceID: 6122}
+    - Class: 114
+      Script: {instanceID: 6340}
+    - Class: 114
+      Script: {instanceID: 6342}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 137
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -238,6 +257,12 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
+      Hash: dd6f89849ccf29a0d273518d33eece41
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TextToSpeech
+  - hash:
+      serializedVersion: 2
       Hash: 300fd99066f8c288e85f5e81ce65fe34
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -322,6 +347,12 @@ ScriptsOnlyBuild:
     className: Rotate
   - hash:
       serializedVersion: 2
+      Hash: 97d11d35e9b9a69779387a0c996fcdc8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DemoFree
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -332,6 +363,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 07d69ce4a98bc6bb9d8730614c21369e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SimpleSampleCharacterControl
   - hash:
       serializedVersion: 2
       Hash: 37a13922678947e6d144f41a7195154a
@@ -940,11 +977,23 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
+      Hash: 48aa7e3a10ad49e34c99883f1c252b8d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FreeCameraLogic
+  - hash:
+      serializedVersion: 2
       Hash: 7f2addc56e70740d9a2119d7a09dffe8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlaceOnPlane
+  - hash:
+      serializedVersion: 2
+      Hash: 61ad2455aa49f7d3f6df89244e323583
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WatsonSettings
   platform: 13
   scenePathNames:
   - Assets/Scenes/Main.unity
-  playerPath: D:/AndroidProject/ar_ai_messaging_uob/unity/ARView-IBM-TextMessaging/Builds/ARView-IBM-TextMessaging.apk
+  playerPath: W:/ar_ai_textmessaging/unity/ARView-IBM-TextMessaging/Builds/ARView-IBM-TextMessaging.apk
