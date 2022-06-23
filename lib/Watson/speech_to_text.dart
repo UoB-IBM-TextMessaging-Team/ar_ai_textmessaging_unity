@@ -58,7 +58,7 @@ class SpeechToText {
   }
 
 
-  Future<String> toText() async {
+  Future<STTResult> run() async {
     String token = this.iamOptions.accessToken;
     //String STTResult = 'Ibm Watson initial failure';
     var response = await http.post(
@@ -76,16 +76,16 @@ class SpeechToText {
       String error = parsed['error'];
       int errCode = parsed['code'];
       String description = parsed['code_description'];
-      return "$error,error code: $errCode, $description";
+      throw Exception("$error,error code: $errCode, $description");
     }
 
-    STTResult result = STTResult.fromJson(parsed);
-
+    /*
     if(result.confidence<0.2){
       double confidence = result.confidence;
       return "IBM Watson could not understand what you mean.(Confidence of recognition is $confidence)";
     }
-    return result.transcript;
+    */
+    return STTResult.fromJson(parsed);
 
     /*
     final channel = WebSocketChannel.connect(
