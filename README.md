@@ -25,8 +25,9 @@ To build the app, you just need to:
     `flutter.buildMode=debug`  
      `flutter.compileSdkVersion=33`  
      `flutter.minSdkVersion=24`  
-     `ndk.dir=<android NDK location>`  
-  3. `flutter run`
+     `ndk.dir=<android NDK location>`    
+  3.  (Recommended) Installing flutter plugin in your working IDE
+  4. `flutter run`
  
 If you got any installation problem, check your flutter installation using `flutter doctor`. Make sure `android NDK` and `flutter` are set correctly. Further question please dm @Cheong43 .
 
