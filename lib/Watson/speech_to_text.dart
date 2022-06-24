@@ -31,7 +31,7 @@ class STTResult {
 class SpeechToText {
   String urlBase = "https://api.eu-gb.speech-to-text.watson.cloud.ibm.com";
   IamOptions iamOptions;
-  String content_type;
+  String contentType;
   String model;
   File audioFile;
 
@@ -42,7 +42,7 @@ class SpeechToText {
   SpeechToText(
       {required this.iamOptions,
         required this.audioFile,
-        this.content_type = "audio/wav",
+        this.contentType = "audio/wav",
         this.model = "en-US_BroadbandModel"});
 /*
   void setModel(String m) {
@@ -65,7 +65,7 @@ class SpeechToText {
       Uri.parse(_getUrl("recognize", param: "?model=$model")),
       headers: {
         HttpHeaders.authorizationHeader: "Bearer $token",
-        HttpHeaders.contentTypeHeader: content_type,
+        HttpHeaders.contentTypeHeader: contentType,
       },
       body: await audioFile.readAsBytes()
     );

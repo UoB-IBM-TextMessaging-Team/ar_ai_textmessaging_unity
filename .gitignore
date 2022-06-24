@@ -58,8 +58,10 @@ unity/ARView-IBM-TextMessaging/Builds/*
 unity/ARView-IBM-TextMessaging/Library/*
 unity/ARView-IBM-TextMessaging/Logs/*
 unity/ARView-IBM-TextMessaging/Temp/*
+
 # Android related
 **/android/**/gradle-wrapper.jar
+**/android/unitylibrary/*
 **/android/.gradle
 **/android/captures/
 **/android/gradlew

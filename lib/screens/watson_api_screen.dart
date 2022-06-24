@@ -1,25 +1,22 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:flutter_sound_platform_interface/flutter_sound_recorder_platform_interface.dart';
+import 'package:ar_ai_messaging_uob/Watson/iam_option.dart';
+import 'package:ar_ai_messaging_uob/Watson/speech_to_text.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:path_provider/path_provider.dart';
 
 typedef _Fn = void Function();
 
-/* This does not work. on Android we must have the Manifest.permission.CAPTURE_AUDIO_OUTPUT permission.
- * But this permission is _is reserved for use by system components and is not available to third-party applications._
- * Pleaser look to [this](https://developer.android.com/reference/android/media/MediaRecorder.AudioSource#VOICE_UPLINK)
- *
- * I think that the problem is because it is illegal to record a communication in many countries.
- * Probably this stands also on iOS.
- * Actually I am unable to record DOWNLINK on my Xiaomi Chinese phone.
- *
+/* 不稳定的版本，仅供体验
+ * //TODO
+ * exception and channel not sync problem
  */
-//const theSource = AudioSource.voiceUpLink;
-//const theSource = AudioSource.voiceDownlink;
 
 const theSource = AudioSource.microphone;
 
@@ -34,16 +31,19 @@ class WatsonApiScreen extends StatefulWidget{
 
 
 class _SimpleRecorderState extends State<WatsonApiScreen> {
-  Codec _codec = Codec.aacMP4;
-  String _mPath = 'tau_file.mp4';
+  Codec _codec = Codec.pcm16WAV;
+  String _mPath = 'tau_file.wav';
   FlutterSoundPlayer? _mPlayer = FlutterSoundPlayer();
   FlutterSoundRecorder? _mRecorder = FlutterSoundRecorder();
   bool _mPlayerIsInited = false;
   bool _mRecorderIsInited = false;
   bool _mplaybackReady = false;
+  String watsonMessage = 'Waiting for watson';
 
   @override
   void initState() {
+    updatePath();
+
     _mPlayer!.openPlayer().then((value) {
       setState(() {
         _mPlayerIsInited = true;
@@ -127,6 +127,7 @@ class _SimpleRecorderState extends State<WatsonApiScreen> {
         _mplaybackReady = true;
       });
     });
+    getWatsonResult();
   }
 
   void play() {
@@ -153,8 +154,23 @@ class _SimpleRecorderState extends State<WatsonApiScreen> {
   }
 
   // ----------------------  Wheels for Watsons -------------------------------
-  void getWatsonResult(){
+  Future<void> getWatsonResult() async {
+    String apikey = "V54HsAymPgGoYbINdYowOHxK7-ULgpTmAubGBFgg68E-";
+    String url = "https://api.eu-gb.speech-to-text.watson.cloud.ibm.com/instances/30206445-a817-40a2-aac9-e5432636a66c";
+    IamOptions options = await IamOptions(iamApiKey: apikey, url: url).build();
+    STTResult test = await SpeechToText(iamOptions: options, audioFile: File(_mPath),contentType: "audio/wav").run();
+    print(test.transcript);
+    setState(() {
+      watsonMessage = test.transcript;
+    });
+  }
 
+  Future<void> updatePath() async {
+    Directory tempDir = await getTemporaryDirectory();
+    String newpth = await tempDir.path + _mPath;
+    setState(() {
+      _mPath = newpth;
+    });
   }
 
 // ----------------------------- UI --------------------------------------------
@@ -234,6 +250,7 @@ class _SimpleRecorderState extends State<WatsonApiScreen> {
                   : 'Player is stopped'),
             ]),
           ),
+          Text(watsonMessage)
         ],
       );
     }
