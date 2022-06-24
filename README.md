@@ -19,7 +19,7 @@ installation(https://unity3d.com/get-unity/download)
 
 To build the app, you just need to:
 
-1. (If the unity project been changed/First time init) Open the `unity` project and build it: Menu -> Flutter -> Export Android
+1. (First time init/If the unity project been changed/) Open the `unity` project in`/unity/ARView-IBM-TextMessaging`, In `File` select `build setting` and switch platform to`android`. Then Menu -> Flutter -> Export Android
 2. setting `android/local.properties`：  
    `sdk.dir=<android sdk location>`  
    `flutter.sdk=<flutter location>`  
@@ -28,7 +28,8 @@ To build the app, you just need to:
    `flutter.minSdkVersion=24`  
    `ndk.dir=<android NDK location>`    
 3. (Recommended) Installing flutter plugin in your working IDE
-4. `flutter run`
+4. `flutter run`    
+
 If you got any installation problem, check your flutter installation using `flutter doctor`. Make sure `android NDK` and `flutter` are set correctly. Further question please dm @Cheong43 .
 
 ## Unity Project Folder
