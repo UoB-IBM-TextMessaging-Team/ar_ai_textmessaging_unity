@@ -45,6 +45,7 @@ class SpeechToText {
   String contentType;
   String model;
   File audioFile;
+  bool lowLatency;
 
   //Json pack to init and end web socket
   //final String startMessage = "{action: 'start'}";
@@ -54,7 +55,8 @@ class SpeechToText {
       {required this.iamOptions,
         required this.audioFile,
         this.contentType = "audio/wav",
-        this.model = "en-US_BroadbandModel"});
+        this.model = "en-US_BroadbandModel",
+        this.lowLatency = false});
 /*
   void setModel(String m) {
     this.model = m;
@@ -73,7 +75,7 @@ class SpeechToText {
     String token = iamOptions.accessToken;
     //String STTResult = 'Ibm Watson initial failure';
     var response = await http.post(
-      Uri.parse(_getUrl("recognize", param: "?model=$model")),
+      Uri.parse(_getUrl("recognize", param: "?model=$model&low_latency=$lowLatency")),
       headers: {
         HttpHeaders.authorizationHeader: "Bearer $token",
         HttpHeaders.contentTypeHeader: contentType,

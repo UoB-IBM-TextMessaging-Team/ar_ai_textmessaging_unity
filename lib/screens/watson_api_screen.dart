@@ -158,7 +158,7 @@ class _SimpleRecorderState extends State<WatsonApiScreen> {
     String apikey = "V54HsAymPgGoYbINdYowOHxK7-ULgpTmAubGBFgg68E-";
     String url = "https://api.eu-gb.speech-to-text.watson.cloud.ibm.com/instances/30206445-a817-40a2-aac9-e5432636a66c";
     IamOptions options = await IamOptions(iamApiKey: apikey, url: url).build();
-    STTResult test = await SpeechToText(iamOptions: options, audioFile: File(_mPath),contentType: "audio/wav").run();
+    STTResult test = await SpeechToText(iamOptions: options, audioFile: File(_mPath),contentType: "audio/wav",model: "en-GB_Multimedia",lowLatency: true).run();
     setState(() {
       watsonMessage = test.getAllTranscript();
     });
