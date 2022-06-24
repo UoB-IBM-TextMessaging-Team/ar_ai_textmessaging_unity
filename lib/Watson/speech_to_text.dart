@@ -6,25 +6,36 @@ import 'dart:async';
 import 'dart:io';
 
 class STTResult {
-  final int result_index;
-  final bool finala;
-  final String transcript;
-  final double confidence;
+  final int resultIndex;
+  final List<String> transcripts;
+  final List<double> confidences;
 
   const STTResult({
-    this.result_index = 0,
-    required this.finala,
-    required this.transcript,
-    required this.confidence,
+    this.resultIndex = 0,
+    required this.transcripts,
+    required this.confidences,
   });
 
   factory STTResult.fromJson(Map<String, dynamic> json) {
+
+    var it = json['results'].iterator;
+    List<String> tempT = [];
+    List<double> tempC = [];
+    while(it.moveNext()){
+      Map<String,dynamic> currentPhase = it.current;
+      String transcript = currentPhase['alternatives'][0]['transcript'] as String;
+      tempT.add(transcript.substring(0,transcript.length-1));
+      tempC.add(currentPhase['alternatives'][0]['confidence'] as double);
+    }
+
     return STTResult(
-      result_index: 0,
-      finala: json['results'][0]['final'] as bool,
-      transcript: json['results'][0]['alternatives'][0]['transcript'] as String,
-      confidence: json['results'][0]['alternatives'][0]['confidence'] as double,
+      transcripts: tempT,
+      confidences: tempC,
     );
+  }
+
+  String getAllTranscript(){
+    return '${transcripts.join(", ")}.';
   }
 }
 
@@ -51,7 +62,7 @@ class SpeechToText {
 */
   String _getUrl(method, {param = ""}) {
     String url = iamOptions.url;
-    if (iamOptions.url == "" || iamOptions.url == null) {
+    if (iamOptions.url == "") {
       url = urlBase;
     }
     return "$url/v1/$method$param";
@@ -59,7 +70,7 @@ class SpeechToText {
 
 
   Future<STTResult> run() async {
-    String token = this.iamOptions.accessToken;
+    String token = iamOptions.accessToken;
     //String STTResult = 'Ibm Watson initial failure';
     var response = await http.post(
       Uri.parse(_getUrl("recognize", param: "?model=$model")),
