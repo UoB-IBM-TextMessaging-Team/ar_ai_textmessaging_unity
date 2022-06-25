@@ -6,34 +6,46 @@ import 'dart:async';
 import 'dart:io';
 
 class STTResult {
-  final int result_index;
-  final bool finala;
-  final String transcript;
-  final double confidence;
+  final int resultIndex;
+  final List<String> transcripts;
+  final List<double> confidences;
 
   const STTResult({
-    this.result_index = 0,
-    required this.finala,
-    required this.transcript,
-    required this.confidence,
+    this.resultIndex = 0,
+    required this.transcripts,
+    required this.confidences,
   });
 
   factory STTResult.fromJson(Map<String, dynamic> json) {
+
+    var it = json['results'].iterator;
+    List<String> tempT = [];
+    List<double> tempC = [];
+    while(it.moveNext()){
+      Map<String,dynamic> currentPhase = it.current;
+      String transcript = currentPhase['alternatives'][0]['transcript'] as String;
+      tempT.add(transcript.substring(0,transcript.length-1));
+      tempC.add(currentPhase['alternatives'][0]['confidence'] as double);
+    }
+
     return STTResult(
-      result_index: 0,
-      finala: json['results'][0]['final'] as bool,
-      transcript: json['results'][0]['alternatives'][0]['transcript'] as String,
-      confidence: json['results'][0]['alternatives'][0]['confidence'] as double,
+      transcripts: tempT,
+      confidences: tempC,
     );
+  }
+
+  String getAllTranscript(){
+    return '${transcripts.join(", ")}.';
   }
 }
 
 class SpeechToText {
   String urlBase = "https://api.eu-gb.speech-to-text.watson.cloud.ibm.com";
   IamOptions iamOptions;
-  String content_type;
+  String contentType;
   String model;
   File audioFile;
+  bool lowLatency;
 
   //Json pack to init and end web socket
   //final String startMessage = "{action: 'start'}";
@@ -42,8 +54,9 @@ class SpeechToText {
   SpeechToText(
       {required this.iamOptions,
         required this.audioFile,
-        this.content_type = "audio/wav",
-        this.model = "en-US_BroadbandModel"});
+        this.contentType = "audio/wav",
+        this.model = "en-US_BroadbandModel",
+        this.lowLatency = false});
 /*
   void setModel(String m) {
     this.model = m;
@@ -51,7 +64,7 @@ class SpeechToText {
 */
   String _getUrl(method, {param = ""}) {
     String url = iamOptions.url;
-    if (iamOptions.url == "" || iamOptions.url == null) {
+    if (iamOptions.url == "") {
       url = urlBase;
     }
     return "$url/v1/$method$param";
@@ -59,13 +72,13 @@ class SpeechToText {
 
 
   Future<STTResult> run() async {
-    String token = this.iamOptions.accessToken;
+    String token = iamOptions.accessToken;
     //String STTResult = 'Ibm Watson initial failure';
     var response = await http.post(
-      Uri.parse(_getUrl("recognize", param: "?model=$model")),
+      Uri.parse(_getUrl("recognize", param: "?model=$model&low_latency=$lowLatency")),
       headers: {
         HttpHeaders.authorizationHeader: "Bearer $token",
-        HttpHeaders.contentTypeHeader: content_type,
+        HttpHeaders.contentTypeHeader: contentType,
       },
       body: await audioFile.readAsBytes()
     );

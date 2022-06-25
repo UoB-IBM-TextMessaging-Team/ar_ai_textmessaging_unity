@@ -15,9 +15,8 @@ void main() {
       String apikey = "V54HsAymPgGoYbINdYowOHxK7-ULgpTmAubGBFgg68E-";
       String url = "https://api.eu-gb.speech-to-text.watson.cloud.ibm.com/instances/30206445-a817-40a2-aac9-e5432636a66c";
       IamOptions options = await IamOptions(iamApiKey: apikey, url: url).build();
-      STTResult test = await SpeechToText(iamOptions: options, audioFile: File("test/audio-file2.flac"),content_type: "audio/flac").run();
-      print(test.confidence);
-      print(test.transcript);
+      STTResult test = await SpeechToText(iamOptions: options, audioFile: File("test/audio-file2.flac"),contentType: "audio/flac").run();
+      print(test.transcripts);
     });
   });
 

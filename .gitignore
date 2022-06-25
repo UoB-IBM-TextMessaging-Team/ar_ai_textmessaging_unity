@@ -46,8 +46,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Unity project related
-unity/ARView-IBM-TextMessaging/Library
 
 android/UnityExport/
 ios/UnityExport/
@@ -56,10 +54,13 @@ unity/ARView-IBM-TextMessaging/.vs
 #example/
 unity/ARView-IBM-TextMessaging/Builds/*
 unity/ARView-IBM-TextMessaging/Library/*
+unity/ARView-IBM-TextMessaging/Library/ScriptAssemblies/*
 unity/ARView-IBM-TextMessaging/Logs/*
 unity/ARView-IBM-TextMessaging/Temp/*
+
 # Android related
 **/android/**/gradle-wrapper.jar
+**/android/unitylibrary/*
 **/android/.gradle
 **/android/captures/
 **/android/gradlew
@@ -105,3 +106,4 @@ coverage/
 !**/ios/**/default.pbxuser
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+android/unityLibrary/src/main/Il2CppOutputProject/Source/il2cppOutput/lumpedcpp/Lump_libil2cpp_codegen.cpp
