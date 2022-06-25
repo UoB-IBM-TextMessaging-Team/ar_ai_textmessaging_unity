@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class WatsonSettingsMenu
 {
-    [MenuItem("SNH-Watson/Create New Watson Settings Asset")]
+    [MenuItem("TTSAPIWatson/Create New Watson Settings Asset")]
     public static void CreateAsset()
     {
         ScriptableObjectUtility.CreateAsset<WatsonSettings>();
     }
 
-    [MenuItem("SNH-Watson/Highlight IBM Watson Settings")]
+    [MenuItem("TTSAPIWatson/Highlight IBM Watson Settings")]
     // Pings PhotonServerSettings and makes it selected (show in Inspector)
     private static void HighlightSettings()
     {
