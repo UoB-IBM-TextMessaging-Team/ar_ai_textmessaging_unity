@@ -138,6 +138,7 @@ public class TextToSpeech : MonoBehaviour
 
     //[SerializeField]
     private InputField inputField;
+    private bool AduioStop = false;
     private void Start()
     {
         Debug.Log("Start");
@@ -193,6 +194,10 @@ public class TextToSpeech : MonoBehaviour
         if (audioQueue.Count > 0 && !outputAudioSource.isPlaying)
         {
             PlayClip(audioQueue.Dequeue());
+        }
+        if(AduioStop == true)
+        {
+            outputAudioSource.Stop();
         }
 
     }
@@ -314,5 +319,9 @@ public class TextToSpeech : MonoBehaviour
     public bool IsFinished()
     {
         return !outputAudioSource.isPlaying && audioQueue.Count < 1 && textQueue.Count < 1;
+    }
+    public void stopSound()
+    {
+        AduioStop = true;
     }
 }
