@@ -73,6 +73,7 @@
      <Compile Include="Assets\FlutterUnityIntegration\NativeAPI.cs" />
      <Compile Include="Assets\WatsonTTSScripts\TextToSpeech.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+     <Compile Include="Assets\Main_control.cs" />
      <Compile Include="Assets\WatsonTTSScripts\WasonNLU.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
      <Compile Include="Assets\FlutterUnityIntegration\Demo\Rotate.cs" />

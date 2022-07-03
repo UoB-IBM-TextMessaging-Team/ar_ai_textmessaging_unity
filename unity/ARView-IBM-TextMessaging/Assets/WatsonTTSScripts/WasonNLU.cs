@@ -25,6 +25,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using IBM.Cloud.SDK;
+using System.Text.RegularExpressions;
 
 
 public class WasonNLU 
@@ -47,7 +48,7 @@ public class WasonNLU
     private const string iamApikey = "U_Wd0zXTjUsWXvtZNbvr66ylrIBdUxlDF8qjQKkLncdR";
     private const string serviceUrl = "https://api.eu-gb.natural-language-understanding.watson.cloud.ibm.com/instances/b8af7dc3-c234-4307-bd91-596656623719" ;
     private const string versionDate = "2022-04-07";
-    private string emotionResult;
+    private string emotionResult = null;
     private string nluText;
     public WasonNLU(string text)
     {
@@ -103,6 +104,10 @@ public class WasonNLU
         }
 
         Runnable.Run(ExampleAnalyze());
+/*        if(emotionResult == null)
+        {
+            Runnable.Run(ExampleTargetAnalyze());
+        }*/
         //Runnable.Run(ExampleListModels());
         //Runnable.Run(ExampleDeleteModel());
     }
@@ -111,15 +116,15 @@ public class WasonNLU
     {
         Features features = new Features()
         {
-            /*Keywords = new KeywordsOptions()
-                {
-                    Limit = 2,
-                    Emotion = true,
-                    Sentiment = true
-                },*/
+            /* Keywords = new KeywordsOptions()
+                 {
+                     Limit = 2,
+                     Emotion = true,
+                     Sentiment = true
+                 },*/
             Emotion = new EmotionOptions()
             {
-                
+                //Targets = new List<string>
             }
         };
         AnalysisResults analyzeResponse = null;
@@ -139,6 +144,36 @@ public class WasonNLU
         while (analyzeResponse == null)
             yield return null;
     }
+
+/*    private IEnumerator ExampleTargetAnalyze()
+    {
+        //List<string> list = new List<string>(nluText.Split("\\s+"));
+        string[] mm = Regex.Split(nluText, "\\s+", RegexOptions.IgnoreCase);
+        List<System.String> listS = new List<System.String>(mm);
+        Features features = new Features()
+        {
+            Emotion = new EmotionOptions()
+            {
+                Targets = listS
+            }
+        };
+        AnalysisResults analyzeResponse = null;
+
+        service.Analyze(
+            callback: (DetailedResponse<AnalysisResults> response, IBMError error) =>
+            {
+                Log.Debug("NaturalLanguageUnderstandingServiceV1", "Analyze result: {0}", response.Response);
+                emotionResult = response.Response;
+                analyzeResponse = response.Result;
+            },
+            features: features,
+            text: nluText
+        //url: serviceUrl
+        );
+        Debug.Log("NLU" + emotionResult);
+        while (analyzeResponse == null)
+            yield return null;
+    }*/
     public string getResult()
     {
         return emotionResult;

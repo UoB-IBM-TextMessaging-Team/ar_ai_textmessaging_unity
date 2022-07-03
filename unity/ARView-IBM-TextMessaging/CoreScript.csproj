@@ -55,7 +55,6 @@
      <Compile Include="Assets\Scripts\Device_check.cs" />
      <Compile Include="Assets\Scripts\CharacterSkinController.cs" />
      <Compile Include="Assets\Scripts\AnimationScripts\AnimationAnger.cs" />
-     <Compile Include="Assets\Scripts\Main_control.cs" />
      <Compile Include="Assets\Scripts\ARObjectControl.cs" />
      <Compile Include="Assets\Scripts\StartScene.cs" />
      <Compile Include="Assets\Scripts\AnimationScripts\AnimationFear.cs" />
