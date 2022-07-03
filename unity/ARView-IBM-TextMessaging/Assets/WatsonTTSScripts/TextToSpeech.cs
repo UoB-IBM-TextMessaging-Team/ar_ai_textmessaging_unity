@@ -117,11 +117,11 @@ public class TextToSpeech : MonoBehaviour
     private ProcessingStatus audioStatus;
 
     [SerializeField]
-    private AudioSource outputAudioSource; // The AudioSource for speaking
+    public AudioSource outputAudioSource; // The AudioSource for speaking
 
-    [SerializeField]
-    private AudioSource oculusLipsyncAudioSource; // AudioSource for Oculus Lipsync
-
+    /*[SerializeField]
+    private AudioSource oculusLipsyncAudioSource; // AudioSource for Oculus Lipsync*/
+   
     // A queue for storing the entered texts for conversion to speech audio files
     private Queue<string> textQueue = new Queue<string>();
     // A queue for storing the speech AudioClips for playing
@@ -273,11 +273,11 @@ public class TextToSpeech : MonoBehaviour
             outputAudioSource.spatialBlend = 0.0f;
             outputAudioSource.loop = false;
             outputAudioSource.clip = clip;
-            if (oculusLipsyncAudioSource != null)
+            /*if (oculusLipsyncAudioSource != null)
             {
                 oculusLipsyncAudioSource.clip = clip;
                 oculusLipsyncAudioSource.Play();
-            }
+            }*/
             outputAudioSource.Play();
         }
     }
@@ -293,14 +293,18 @@ public class TextToSpeech : MonoBehaviour
             inputField.text = string.Empty;
         }
 
-    }
+    } 
 
     // Return the status of the conversion to audio
     public ProcessingStatus Status()
     {
         return audioStatus;
     }
-
+    // Return the status of audio playing
+    public bool AudioStatus()
+    {
+        return outputAudioSource.isPlaying;
+    } 
     // Check if the text to speech service is ready
     public bool ServiceReady()
     {

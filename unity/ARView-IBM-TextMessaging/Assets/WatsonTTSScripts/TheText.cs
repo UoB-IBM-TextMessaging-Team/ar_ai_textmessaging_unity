@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+///////////////////////////////////
+//////////////////////////////////
+// NOT IN USE//
+/// <summary>
+/// /////////////////////////
+/// </summary>
 
 public class TheText : MonoBehaviour
 {
@@ -14,10 +19,12 @@ public class TheText : MonoBehaviour
     // Start is called before the first frame update
 
     public int index;
+    private WasonNLU wasonNLU;
     void Start()
     {
         Debug.Log("StartTheText");
         index = 0;
+        wasonNLU = new WasonNLU();
     }
 
     // Update is called once per frame
@@ -26,8 +33,19 @@ public class TheText : MonoBehaviour
         {
             Debug.Log("send str");
             index++;
-            GameObject.Find("TextToSpeech").SendMessage("AddTextToQueue", s);
+            GameObject.Find("WatsonTTSAndNLU").SendMessage("AddTextToQueue", s);
+            wasonNLU.sendTextToNLU(s);
             s = string.Empty;
+        }
+        if (wasonNLU.getResult() != null)
+        {
+            string re;
+            re = wasonNLU.getResult();
+            parserForNLU p = new parserForNLU();
+            int index = p.parse(re);
+            Debug.Log("NLU result String " + re);
+            Debug.Log(index);
+            wasonNLU.clean();
         }
     }
 
@@ -37,6 +55,12 @@ public class TheText : MonoBehaviour
         index = 1;
 
     }
+    public void sendTextToNLU(string str)
+    {
+        
+
+    }
+
 
 
 }

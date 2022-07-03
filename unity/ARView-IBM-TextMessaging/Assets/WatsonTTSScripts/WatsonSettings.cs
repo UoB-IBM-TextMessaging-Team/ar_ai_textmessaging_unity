@@ -18,12 +18,18 @@ public class WatsonSettings : ScriptableObject
     [Header("IBM Watson Text to Speech")]
     public string tts_apikey; // API key for IBM Watson text to speech
     public string tts_serviceUrl; // Service URL for IBM Watson text to speech
-   
+
     [Space(10)]
-    [Header("IBM Watson Speech to Text")]
-    [Tooltip("The IAM apikey.")]
-    public string stt_apikey;
-    [Tooltip("The service URL (optional). This defaults to \"https://stream.watsonplatform.net/speech-to-text/api\"")]
-    public string stt_serviceUrl;
+    [Header("IBM Watson NLU")]
+    public string NLU_apikey; // API key for IBM Watson text to speech
+    public string NLU_serviceUrl; // Service URL for IBM Watson text to speech
+
+
+    /*    [Space(10)]
+        [Header("IBM Watson Speech to Text")]
+        [Tooltip("The IAM apikey.")]
+        public string stt_apikey;
+        [Tooltip("The service URL (optional). This defaults to \"https://stream.watsonplatform.net/speech-to-text/api\"")]
+        public string stt_serviceUrl;*/
 
 }
