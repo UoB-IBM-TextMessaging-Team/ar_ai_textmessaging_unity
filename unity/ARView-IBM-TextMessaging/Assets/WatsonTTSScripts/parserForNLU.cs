@@ -41,23 +41,23 @@ public class parserForNLU
         Debug.Log(FearWeight);
         Debug.Log(DisgustWeight);
         Debug.Log(AngerWeight); */
-        if (SadWeight > 0.75 && SadWeight <1)
+        if (SadWeight > 0.51 && SadWeight <1)
         {
             return 1;
         }
-        if (JoyWeight > 0.75 && JoyWeight < 1)
+        if (JoyWeight > 0.51 && JoyWeight < 1)
         {
             return 2;
         }
-        if (FearWeight > 0.75 && FearWeight < 1)
+        if (FearWeight > 0.51 && FearWeight < 1)
         {
             return 3;
         }
-        if (DisgustWeight > 0.75 && DisgustWeight < 1)
+        if (DisgustWeight > 0.51 && DisgustWeight < 1)
         {
             return 4;
         }
-        if (AngerWeight > 0.75 && AngerWeight < 1)
+        if (AngerWeight > 0.51 && AngerWeight < 1)
         {
             return 5;
         }
