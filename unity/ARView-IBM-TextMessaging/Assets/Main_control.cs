@@ -214,28 +214,33 @@ public class Main_control : MonoBehaviour
     private void OnConfirmAction()
     {
         string message = messageInput.text;
-        //Read message
-        watsonTTS.SendMessage("sendTextToTTS", message);
-        //Animate
-        Animator ani = curARObjControl.Animator;
         if(string.IsNullOrEmpty(message)) {
             return;
         }
-        if(int.Parse(message)==1) {
+        //NLU TTS
+        watsonNLUTTSIF watsonService = new watsonNLUTTSIF(message);
+        //Animation
+        int emotionSignal = watsonService.getEmotion();
+        Animator ani = curARObjControl.Animator;
+        
+        if(emotionSignal==1) {
             ani.SetTrigger("sadness");
         }
-        else if(int.Parse(message)==2) {
+        else if(emotionSignal==2) {
             ani.SetTrigger("joy");
         }
-        else if(int.Parse(message)==3) {
+        else if(emotionSignal==3) {
             ani.SetTrigger("fear");
         }
-        else if(int.Parse(message)==4) {
+        else if(emotionSignal==4) {
             ani.SetTrigger("disgust");
         }
-        else if(int.Parse(message)==5) {
+        else if(emotionSignal==5) {
             ani.SetTrigger("anger");
         }
+        //else {
+        //    ani.SetTrigger("normal");
+        //}
         
     }
     #endregion
