@@ -34,6 +34,10 @@ public class watsonNLUTTSIF
     {
         return GameObject.Find("WatsonTTSAndNLU").GetComponent<TextToSpeech>().outputAudioSource.isPlaying;
     }
+    public void destroyAudio()
+    {
+        GameObject.Find("WatsonTTSAndNLU").GetComponent<TextToSpeech>().stopSound();
+    }
 
 
 }
