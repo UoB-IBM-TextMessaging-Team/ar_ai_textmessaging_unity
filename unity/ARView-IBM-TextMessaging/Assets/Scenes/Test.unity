@@ -404,6 +404,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &742552260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3264744245418948569, guid: 27e4bd5d05232184d9a956d7ff5ee542, type: 3}
+  m_PrefabInstance: {fileID: 1817979129278307444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &742552261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742552260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489f7a7ee1d59764e89d1d783290a4f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetGameObject: {fileID: 0}
+  s: apple oranges
+  index: 0
 --- !u!1001 &868959760
 PrefabInstance:
   m_ObjectHideFlags: 0
