@@ -220,7 +220,8 @@ public class Main_control : MonoBehaviour
         //NLU TTS
         watsonNLUTTSIF watsonService = new watsonNLUTTSIF(message);
         //Animation
-        int emotionSignal = watsonService.getEmotion();
+        int emotionSignal = -1;
+        emotionSignal = watsonService.getEmotion();
         Animator ani = curARObjControl.Animator;
         
         if(emotionSignal==1) {
@@ -239,7 +240,7 @@ public class Main_control : MonoBehaviour
             ani.SetTrigger("anger");
         }
         //else {
-        //    ani.SetTrigger("normal");
+        //    ani.SetTrigger("anger");
         //}
         
     }
