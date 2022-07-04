@@ -6,8 +6,9 @@ using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Threading.Tasks;
 
-
+using System.Threading;
 public class main_test : MonoBehaviour
 {
     [Header("AR Object To Place")]
@@ -45,7 +46,14 @@ public class main_test : MonoBehaviour
         //NLU TTS
         watsonNLUTTSIF watsonService = new watsonNLUTTSIF(message);
         //Animation
-        int emotionSignal = watsonService.getEmotion();
+        int emotionSignal = -1;
+        Debug.Log("getNLUResult  " + watsonService.getNLUResult());
+        /*while (watsonService.getNLUResult() == null)
+        {
+            
+        }*/
+        emotionSignal = watsonService.getEmotion();
+        Debug.Log("emotionSignal  " + emotionSignal);
         ARObjectControl curARObjControl = objectToPlace.GetComponent<ARObjectControl>();
         Animator ani = curARObjControl.Animator;
         

@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
 using System.Text;
+using IBM.Watson.NaturalLanguageUnderstanding.V1;
+using IBM.Watson.NaturalLanguageUnderstanding.V1.Model;
 
 public class parserForNLU 
 {
     public parserForNLU(){
 
     }
-    public int parse(string s)
+    public int parse1(string s)
     {
         int indexSad = s.IndexOf("sadness");
         int indexJoy = s.IndexOf("joy");
@@ -64,7 +66,67 @@ public class parserForNLU
         return 0;
 
     }
+    public int parse(AnalysisResults analyzeResponse)
 
+    {
+        double anger = 0;
+        double fear = 0;
+        double sadness = 0;
+        double disgust = 0;
+        double joy = 0;
+        if (analyzeResponse.Emotion.Document.Emotion.Anger.HasValue)
+        {
+            anger = analyzeResponse.Emotion.Document.Emotion.Anger.Value;
+        }
+
+        if (analyzeResponse.Emotion.Document.Emotion.Fear.HasValue)
+        {
+            fear = analyzeResponse.Emotion.Document.Emotion.Fear.Value;
+        }
+
+        if (analyzeResponse.Emotion.Document.Emotion.Sadness.HasValue)
+        {
+            sadness = analyzeResponse.Emotion.Document.Emotion.Sadness.Value;
+        }
+
+        if (analyzeResponse.Emotion.Document.Emotion.Disgust.HasValue)
+        {
+            disgust = analyzeResponse.Emotion.Document.Emotion.Disgust.Value;
+        }
+
+        if (analyzeResponse.Emotion.Document.Emotion.Joy.HasValue)
+        {
+            joy = analyzeResponse.Emotion.Document.Emotion.Joy.Value;
+        }
+
+/*        double fear = analyzeResponse.Emotion.Document.Emotion.Fear;
+        double joy = analyzeResponse.Emotion.Document.Emotion.Joy;
+        double sadness = analyzeResponse.Emotion.Document.Emotion.Sadness;
+        double disgust = analyzeResponse.Emotion.Document.Emotion.Disgust;*/
+
+        if (sadness > 0.51 && sadness < 1)
+        {
+            return 1;
+        }
+        if (joy > 0.51 && joy < 1)
+        {
+            return 2;
+        }
+        if (fear > 0.51 && fear < 1)
+        {
+            return 3;
+        }
+        if (disgust > 0.51 && disgust < 1)
+        {
+            return 4;
+        }
+        if (anger > 0.51 && anger < 1)
+        {
+            return 5;
+        }
+        return 0;
+
+    }
     public double StrToDouble(string s) 
     {
         try

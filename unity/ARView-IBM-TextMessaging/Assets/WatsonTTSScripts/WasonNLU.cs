@@ -50,6 +50,7 @@ public class WasonNLU
     private const string versionDate = "2022-04-07";
     private string emotionResult = null;
     private string nluText;
+    public AnalysisResults analyzeResponse;
     public WasonNLU(string text)
     {
         nluText = text;
@@ -68,7 +69,10 @@ public class WasonNLU
     {
         emotionResult = null;
     }
-
+    public AnalysisResults getAnalysisResults()
+    {
+        return analyzeResponse;
+    }
 
     private NaturalLanguageUnderstandingService service;
     //private string nluText = "IBM is an American multinational technology company headquartered in Armonk, New York, United States with operations in over 170 countries.";
@@ -116,12 +120,7 @@ public class WasonNLU
     {
         Features features = new Features()
         {
-            /* Keywords = new KeywordsOptions()
-                 {
-                     Limit = 2,
-                     Emotion = true,
-                     Sentiment = true
-                 },*/
+            
             Emotion = new EmotionOptions()
             {
                 //Targets = new List<string>
@@ -158,7 +157,7 @@ public class WasonNLU
                 //Document = false
             }
         };
-        AnalysisResults analyzeResponse = null;
+        analyzeResponse = null;
 
         service.Analyze(
             callback: (DetailedResponse<AnalysisResults> response, IBMError error) =>
@@ -179,6 +178,8 @@ public class WasonNLU
     {
         return emotionResult;
     }
+
+
     /* private IEnumerator ExampleListModels()
      {
          ListModelsResults listModelsResponse = null;

@@ -20,14 +20,16 @@ public class TheText : MonoBehaviour
 
     public int index;
     private WasonNLU wasonNLU;
-    void Start()
+    private watsonNLUTTSIF watsonService;
+     void Start()
     {
         Debug.Log("StartTheText");
         index = 0;
         wasonNLU = new WasonNLU();
+        watsonService = new watsonNLUTTSIF();
     }
 
-    // Update is called once per frame
+/*    // Update is called once per frame
     void Update() {
         if (index == 1)
         {
@@ -47,7 +49,31 @@ public class TheText : MonoBehaviour
             Debug.Log(index);
             wasonNLU.clean();
         }
+    }*/
+    // Update is called once per frame
+    void Update()
+    {
+        if (index == 1)
+        {
+            Debug.Log("send str");
+            index++;
+            watsonService = new watsonNLUTTSIF(s);
+            /*GameObject.Find("WatsonTTSAndNLU").SendMessage("AddTextToQueue", s);
+            wasonNLU.sendTextToNLU(s);*/
+            s = string.Empty;
+        }
+        if (watsonService.getNLUResult() != null)
+        {
+            string re;
+            re = watsonService.getNLUResult();
+            parserForNLU p = new parserForNLU();
+            int index = p.parse1(re);
+            Debug.Log("NLU result String " + re);
+            Debug.Log("NLU result emotion "+index);
+            //wasonNLU.clean();
+        }
     }
+
 
     public void sendTextToTTS(string str)
     {
