@@ -9,10 +9,13 @@ public class watsonNLUTTSIF
     private WasonNLU wasonNLU;
     //private string NLUResult;
     private int indexOfEmotion = -1;
+    private string message;
     public watsonNLUTTSIF(string str)
     {
         wasonNLU = new WasonNLU();
         wasonNLU.sendTextToNLU(str);
+        GameObject.Find("WatsonTTSAndNLU").GetComponent<TextToSpeech>().playSound();
+        message = str;
         //GameObject.Find("WatsonTTSAndNLU").SendMessage("AddTextToQueue", str);
     }
 
@@ -21,8 +24,8 @@ public class watsonNLUTTSIF
         wasonNLU = new WasonNLU();
     }
     // use the TTS
-    public void soundTTS(string str) {
-        GameObject.Find("WatsonTTSAndNLU").SendMessage("AddTextToQueue", str);
+    public void soundTTS() {
+        GameObject.Find("WatsonTTSAndNLU").SendMessage("AddTextToQueue", message);
 
     }
     //return index of emotion 

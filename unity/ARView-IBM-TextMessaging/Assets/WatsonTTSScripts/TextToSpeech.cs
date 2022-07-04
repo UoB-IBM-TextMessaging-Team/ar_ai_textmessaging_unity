@@ -324,4 +324,8 @@ public class TextToSpeech : MonoBehaviour
     {
         AduioStop = true;
     }
+    public void playSound()
+    {
+        AduioStop = false;
+    }
 }
