@@ -65,9 +65,11 @@ public class WasonNLU
         analyzeNLU();
         return emotionResult;
     }
+
     public void clean()
     {
         emotionResult = null;
+        analyzeResponse = null;
     }
     public AnalysisResults getAnalysisResults()
     {
@@ -126,7 +128,7 @@ public class WasonNLU
                 //Targets = new List<string>
             }
         };
-        AnalysisResults analyzeResponse = null;
+        analyzeResponse = null;
 
         service.Analyze(
             callback: (DetailedResponse<AnalysisResults> response, IBMError error) =>
@@ -139,12 +141,12 @@ public class WasonNLU
             text: nluText
             //url: serviceUrl
         );
-        Debug.Log("NLU"+emotionResult);
+        //Debug.Log("NLU"+emotionResult);
         while (analyzeResponse == null)
             yield return null;
     }
 
-    private IEnumerator ExampleTargetAnalyze()
+/*    private IEnumerator ExampleTargetAnalyze()
     {
         //List<string> list = new List<string>(nluText.Split("\\s+"));
         string[] mm = Regex.Split(nluText, "\\s+", RegexOptions.IgnoreCase);
@@ -173,7 +175,9 @@ public class WasonNLU
         Debug.Log("NLU" + emotionResult);
         while (analyzeResponse == null)
             yield return null;
-    }
+    }*/
+
+
     public string getResult()
     {
         return emotionResult;

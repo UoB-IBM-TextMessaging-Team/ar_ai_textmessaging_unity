@@ -33,25 +33,37 @@ public class main_test : MonoBehaviour
     void Start()
     {
         curARObjControl = objectToPlace.GetComponent<ARObjectControl>();
+        watsonService = new watsonNLUTTSIF();
     }
 
     void Update()
     {
-        if(messageSignal==1)
+        
+        if (messageSignal == 1)
         {
-            if(!string.IsNullOrEmpty(message)) {
-                watsonService = new watsonNLUTTSIF(message);
-                //watsonService.soundTTS();
-                message = string.Empty;
-            }
-            // NLU TTS    
-            if(watsonService.getNLUResult()!=null) {
-                emotionSignal = watsonService.getEmotion();
-                Debug.Log(emotionSignal);
-                watsonService.soundTTS();
-            }  
-            //Animate
-            if (watsonService.getStatusOfAudio() && (!isPlaying_lastframe)) {
+         
+         //watsonService = new watsonNLUTTSIF(message);
+         watsonService.NLUAnalyze(message);
+         //watsonService.soundTTS();
+         //message = string.Empty;
+         messageSignal++;
+         watsonService.soundTTS(message);
+        }
+        else if (messageSignal == 0)
+        {
+            watsonService.destroyAudio();
+            curARObjControl.Animator.SetTrigger("normal");
+        }
+        // NLU TTS    
+        if(watsonService.getNLUResult()!=null && messageSignal ==2) {
+            emotionSignal = watsonService.getEmotion();
+            Debug.Log("emotionSignal " + emotionSignal);
+            
+            messageSignal++;
+            watsonService.clean();
+        }
+        //Animate
+        if (watsonService.getStatusOfAudio() && (!isPlaying_lastframe)) {
                 if(emotionSignal==1) {
                     curARObjControl.Animator.SetTrigger("sadness");
                 }
@@ -71,20 +83,16 @@ public class main_test : MonoBehaviour
                     curARObjControl.Animator.SetTrigger("normal");
                 }
                 isPlaying_lastframe = true;
-            }
-            else if ((!watsonService.getStatusOfAudio()) && isPlaying_lastframe) {
+         }
+        else if ((!watsonService.getStatusOfAudio()) && isPlaying_lastframe) {
                 curARObjControl.Animator.SetTrigger("normal");
                 isPlaying_lastframe = false;
-            }
+        }
             
-        }
-        else if (messageSignal==0)
-        {
-            watsonService.destroyAudio();
-            curARObjControl.Animator.SetTrigger("normal");
-        }
-
     }
+        
+
+
 
     #region 
     // Actions after pressing confirm button

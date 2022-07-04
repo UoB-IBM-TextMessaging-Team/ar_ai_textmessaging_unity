@@ -99,10 +99,17 @@ public class parserForNLU
             joy = analyzeResponse.Emotion.Document.Emotion.Joy.Value;
         }
 
-/*        double fear = analyzeResponse.Emotion.Document.Emotion.Fear;
-        double joy = analyzeResponse.Emotion.Document.Emotion.Joy;
-        double sadness = analyzeResponse.Emotion.Document.Emotion.Sadness;
-        double disgust = analyzeResponse.Emotion.Document.Emotion.Disgust;*/
+/*        Debug.Log("num");
+        Debug.Log(sadness);
+        Debug.Log(joy);
+        Debug.Log(fear);
+        Debug.Log(disgust);
+        Debug.Log(anger);*/
+
+        /*        double fear = analyzeResponse.Emotion.Document.Emotion.Fear;
+                double joy = analyzeResponse.Emotion.Document.Emotion.Joy;
+                double sadness = analyzeResponse.Emotion.Document.Emotion.Sadness;
+                double disgust = analyzeResponse.Emotion.Document.Emotion.Disgust;*/
 
         if (sadness > 0.51 && sadness < 1)
         {

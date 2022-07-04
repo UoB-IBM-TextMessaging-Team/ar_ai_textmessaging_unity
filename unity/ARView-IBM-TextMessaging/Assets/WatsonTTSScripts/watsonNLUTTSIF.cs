@@ -23,8 +23,19 @@ public class watsonNLUTTSIF
     {
         wasonNLU = new WasonNLU();
     }
+
+    public void NLUAnalyze(string str)
+    {
+        wasonNLU.sendTextToNLU(str);
+
+    }
+    public void clean()
+    {
+        wasonNLU.clean();
+    }
     // use the TTS
-    public void soundTTS() {
+    public void soundTTS(string message) {
+        GameObject.Find("WatsonTTSAndNLU").GetComponent<TextToSpeech>().playSound();
         GameObject.Find("WatsonTTSAndNLU").SendMessage("AddTextToQueue", message);
 
     }
