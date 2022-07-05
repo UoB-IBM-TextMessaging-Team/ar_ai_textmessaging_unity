@@ -279,6 +279,12 @@ public class Main_control : MonoBehaviour
         }
         
     }
+
+    private void StartPlayMessage(string text)
+    {
+        messageSignal = 1;
+        message = text;
+    }
     #endregion
 }
 
