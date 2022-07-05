@@ -83,6 +83,7 @@ public class main_test : MonoBehaviour
                     curARObjControl.Animator.SetTrigger("normal");
                 }
                 isPlaying_lastframe = true;
+                emotionSignal = 0;
          }
         else if ((!watsonService.getStatusOfAudio()) && isPlaying_lastframe) {
                 curARObjControl.Animator.SetTrigger("normal");
@@ -103,8 +104,7 @@ public class main_test : MonoBehaviour
             messageSignal = int.Parse(message_flutter.Substring(0,1));
             message = message_flutter.Remove(0,2);
         }
-        
-        
+              
     }
     #endregion
 }
