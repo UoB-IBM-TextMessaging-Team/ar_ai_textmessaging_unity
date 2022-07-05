@@ -29,9 +29,6 @@ public class Main_control : MonoBehaviour
     public TMP_InputField messageInput;
     public Button confirmActionButton;
 
-    [Header("Watson Text To Speech")]
-    public GameObject watsonTTS;
-
     //Placement positon in reality
     private Pose placementPose;
 
@@ -46,6 +43,12 @@ public class Main_control : MonoBehaviour
 
     //AR foundation raycast object
     private ARRaycastManager raycastManager;
+
+    private watsonNLUTTSIF watsonService;
+    private bool isPlaying_lastframe = false;
+    private string message;
+    private int messageSignal;
+    private int emotionSignal = 0;
     
     private void Awake()
     {
@@ -62,6 +65,9 @@ public class Main_control : MonoBehaviour
 
         //Change to recognizing status
         this.change_to_recognizing();
+
+        //Init Watson NLU & TTS
+        this.watsonService = new watsonNLUTTSIF();
     }
 
     void Update()
@@ -74,6 +80,59 @@ public class Main_control : MonoBehaviour
 
             //Update placement indicator position/if display
             this.UpdatePlacementIndicator();
+        }
+        //When AR status is object_is_placed
+        else if (Config.ar_statu == AR_statu.object_is_placed)
+        {
+            if (messageSignal == 1)
+            {
+                //watsonService = new watsonNLUTTSIF(message);
+                watsonService.NLUAnalyze(message);
+                //watsonService.soundTTS();
+                //message = string.Empty;
+                messageSignal++;
+                watsonService.soundTTS(message);
+            }
+            else if (messageSignal == 0)
+            {
+                watsonService.destroyAudio();
+                curARObjControl.Animator.SetTrigger("normal");
+            }
+            // NLU TTS    
+            if(watsonService.getNLUResult()!=null && messageSignal ==2) {
+                emotionSignal = watsonService.getEmotion();
+                Debug.Log("emotionSignal " + emotionSignal);
+            
+                messageSignal++;
+                watsonService.clean();
+            }
+            //Animate
+            if (watsonService.getStatusOfAudio() && (!isPlaying_lastframe)) {
+                if(emotionSignal==1) {
+                    curARObjControl.Animator.SetTrigger("sadness");
+                }
+                else if(emotionSignal==2) {
+                    curARObjControl.Animator.SetTrigger("joy");
+                }
+                else if(emotionSignal==3) {
+                    curARObjControl.Animator.SetTrigger("fear");
+                }
+                else if(emotionSignal==4) {
+                    curARObjControl.Animator.SetTrigger("disgust");
+                }
+                else if(emotionSignal==5) {
+                    curARObjControl.Animator.SetTrigger("anger");
+                }
+                else {
+                    curARObjControl.Animator.SetTrigger("normal");
+                }
+                isPlaying_lastframe = true;
+                emotionSignal = 0;
+            }
+            else if ((!watsonService.getStatusOfAudio()) && isPlaying_lastframe) {
+                curARObjControl.Animator.SetTrigger("normal");
+                isPlaying_lastframe = false;
+            }
         }
 
     }
@@ -213,35 +272,11 @@ public class Main_control : MonoBehaviour
     // Actions after pressing confirm button
     private void OnConfirmAction()
     {
-        string message = messageInput.text;
-        if(string.IsNullOrEmpty(message)) {
-            return;
+        string message_flutter = messageInput.text;
+        if (message_flutter.Substring(1,1)==":") {
+            messageSignal = int.Parse(message_flutter.Substring(0,1));
+            message = message_flutter.Remove(0,2);
         }
-        //NLU TTS
-        watsonNLUTTSIF watsonService = new watsonNLUTTSIF(message);
-        //Animation
-        int emotionSignal = -1;
-        emotionSignal = watsonService.getEmotion();
-        Animator ani = curARObjControl.Animator;
-        
-        if(emotionSignal==1) {
-            ani.SetTrigger("sadness");
-        }
-        else if(emotionSignal==2) {
-            ani.SetTrigger("joy");
-        }
-        else if(emotionSignal==3) {
-            ani.SetTrigger("fear");
-        }
-        else if(emotionSignal==4) {
-            ani.SetTrigger("disgust");
-        }
-        else if(emotionSignal==5) {
-            ani.SetTrigger("anger");
-        }
-        //else {
-        //    ani.SetTrigger("anger");
-        //}
         
     }
     #endregion
