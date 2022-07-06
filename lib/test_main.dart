@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'screens/menu_screen.dart';
-import 'screens/with_arkit_screen.dart';
-import 'screens/watson_api_screen.dart';
+import 'test_screens/menu_screen.dart';
+import 'test_screens/with_arkit_screen.dart';
+import 'test_screens/watson_api_screen.dart';
 
 void main() => runApp(MaterialApp(
   title: 'Named Routes Demo',

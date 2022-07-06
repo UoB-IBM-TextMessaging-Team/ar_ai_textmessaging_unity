@@ -14,7 +14,7 @@ The build requirement including:
 Google flutter (3.0.0+)
 installation(https://docs.flutter.dev/get-started/install)
 
-Unity 2020.3.35f1 (with android NDK 19) 
+Unity 2022.1.1f1 (with android NDK 21) 
 installation(https://unity3d.com/get-unity/download)
 
 To build the app, you just need to:
@@ -39,7 +39,8 @@ If you would like to build the unity project independently, just use the unity `
 
 ## Trouble Shooting
 
-*Work in progress..     
+*Work in progress..    
+Any "redeclaration" error when building, just run `flutter clean`, it will clean the pub cache.    
 
 ## How to use TTS in your script
 

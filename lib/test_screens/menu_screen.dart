@@ -31,7 +31,7 @@ class MenuScreen extends StatelessWidget {
                       ),
                       onPressed: () {
                         // Navigate to the second screen using a named route.
-                        Navigator.pushNamed(context, '/ar');
+                        Navigator.pushNamed(context,'/ar');
                       },
                     ),
                   )
