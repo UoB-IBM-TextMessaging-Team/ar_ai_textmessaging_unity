@@ -47,7 +47,7 @@ public class Main_control : MonoBehaviour
     private watsonNLUTTSIF watsonService;
     private bool isPlaying_lastframe = false;
     private string message;
-    private int messageSignal;
+    private int messageSignal = -1;
     private int emotionSignal = 0;
     
     private void Awake()
@@ -259,7 +259,7 @@ public class Main_control : MonoBehaviour
     //Actions after pressing back button
     public void on_back_btn()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("MainNormal");
     }
 
     //Actions after pressing place button

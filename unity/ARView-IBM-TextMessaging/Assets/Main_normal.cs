@@ -9,7 +9,7 @@ using TMPro;
 using System.Threading.Tasks;
 
 using System.Threading;
-public class main_test : MonoBehaviour
+public class Main_normal : MonoBehaviour
 {
     [Header("AR Object To Place")]
     public GameObject objectToPlace;
@@ -18,12 +18,19 @@ public class main_test : MonoBehaviour
     public TMP_InputField messageInput;
     public Button confirmActionButton;
 
+    //watson NLU & TTS
     private watsonNLUTTSIF watsonService;
+    //whether audio is playing in the last frame
     private bool isPlaying_lastframe = false;
+    //message
     private string message;
-    private int messageSignal;
+    private int messageSignal = -1;
+    //emotion
     private int emotionSignal = 0;
+    //animation controller
     private ARObjectControl curARObjControl;
+    //play/stop
+    private bool play = false;
 
     private void Awake()
     {
@@ -38,6 +45,11 @@ public class main_test : MonoBehaviour
 
     void Update()
     {
+        if (messageSignal == 9)
+        {
+            SceneManager.LoadScene("MainAR");
+            messageSignal = -1;
+        }
         
         if (messageSignal == 1)
         {
@@ -53,13 +65,14 @@ public class main_test : MonoBehaviour
         {
             watsonService.destroyAudio();
             curARObjControl.Animator.SetTrigger("normal");
+            messageSignal = -1;
         }
         // NLU TTS    
         if(watsonService.getNLUResult()!=null && messageSignal ==2) {
             emotionSignal = watsonService.getEmotion();
             Debug.Log("emotionSignal " + emotionSignal);
             
-            messageSignal++;
+            messageSignal = -1;
             watsonService.clean();
         }
         //Animate
@@ -88,6 +101,7 @@ public class main_test : MonoBehaviour
         else if ((!watsonService.getStatusOfAudio()) && isPlaying_lastframe) {
                 curARObjControl.Animator.SetTrigger("normal");
                 isPlaying_lastframe = false;
+                emotionSignal = 0;
         }
             
     }
