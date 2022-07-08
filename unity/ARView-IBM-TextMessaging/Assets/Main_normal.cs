@@ -29,8 +29,6 @@ public class Main_normal : MonoBehaviour
     private int emotionSignal = 0;
     //animation controller
     private ARObjectControl curARObjControl;
-    //play/stop
-    private bool play = false;
 
     private void Awake()
     {
@@ -77,23 +75,26 @@ public class Main_normal : MonoBehaviour
         }
         //Animate
         if (watsonService.getStatusOfAudio() && (!isPlaying_lastframe)) {
-                if(emotionSignal==1) {
-                    curARObjControl.Animator.SetTrigger("sadness");
-                }
-                else if(emotionSignal==2) {
-                    curARObjControl.Animator.SetTrigger("joy");
-                }
-                else if(emotionSignal==3) {
-                    curARObjControl.Animator.SetTrigger("fear");
-                }
-                else if(emotionSignal==4) {
-                    curARObjControl.Animator.SetTrigger("disgust");
-                }
-                else if(emotionSignal==5) {
-                    curARObjControl.Animator.SetTrigger("anger");
-                }
-                else {
-                    curARObjControl.Animator.SetTrigger("normal");
+                switch(emotionSignal)
+                {
+                    case 1:
+                        curARObjControl.Animator.SetTrigger("sadness");
+                        break;
+                    case 2:
+                        curARObjControl.Animator.SetTrigger("joy");
+                        break;
+                    case 3:
+                        curARObjControl.Animator.SetTrigger("fear");
+                        break;
+                    case 4:
+                        curARObjControl.Animator.SetTrigger("disgust");
+                        break;
+                    case 5:
+                        curARObjControl.Animator.SetTrigger("anger");
+                        break;
+                    default:
+                        curARObjControl.Animator.SetTrigger("talking");
+                        break;
                 }
                 isPlaying_lastframe = true;
                 emotionSignal = 0;
