@@ -50,14 +50,22 @@ public class Main_normal : MonoBehaviour
         }
         
         if (messageSignal == 1)
-        {
-         
-         //watsonService = new watsonNLUTTSIF(message);
-         watsonService.NLUAnalyze(message);
-         //watsonService.soundTTS();
-         //message = string.Empty;
-         messageSignal++;
-         watsonService.soundTTS(message);
+        {         
+            try{
+                //watsonService = new watsonNLUTTSIF(message);
+                watsonService.NLUAnalyze(message);
+            }
+            catch( Exception e )
+            {
+                Console.WriteLine("Emmm... NLUAnalyze exception caught");
+            }
+            finally
+            {
+                //watsonService.soundTTS();
+                //message = string.Empty;
+                messageSignal++;
+                watsonService.soundTTS(message);
+            }
         }
         else if (messageSignal == 0)
         {
