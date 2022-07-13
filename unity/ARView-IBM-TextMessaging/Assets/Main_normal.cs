@@ -7,7 +7,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Threading.Tasks;
-
+using System;
 using System.Threading;
 public class Main_normal : MonoBehaviour
 {
@@ -50,14 +50,20 @@ public class Main_normal : MonoBehaviour
         }
         
         if (messageSignal == 1)
-        {         
+        {        
+            //watsonService = new watsonNLUTTSIF(message);
+            // watsonService.NLUAnalyze(message); 
+            // //watsonService.soundTTS();
+            // //message = string.Empty;
+            // messageSignal++;
+            // watsonService.soundTTS(message);
             try{
                 //watsonService = new watsonNLUTTSIF(message);
                 watsonService.NLUAnalyze(message);
             }
-            catch( Exception e )
+            catch(Exception e)
             {
-                Console.WriteLine("Emmm... NLUAnalyze exception caught");
+                Debug.Log("watsonService.NLUAnalyze() Exception:" + e.Message);
             }
             finally
             {
