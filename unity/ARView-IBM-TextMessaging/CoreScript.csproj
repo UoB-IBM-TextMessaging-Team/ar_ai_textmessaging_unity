@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\AnimationScripts\AnimationFear.cs" />
     <Compile Include="Assets\Scripts\necessary\Config.cs" />
     <Compile Include="Assets\Scripts\Destory_self.cs" />
+    <Compile Include="Assets\Scripts\RotateAndScale.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\CoreScript.asmdef" />
