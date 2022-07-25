@@ -6,6 +6,9 @@ using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Threading.Tasks;
+using System;
+using System.Threading;
 
 
 public class Main_control : MonoBehaviour
@@ -88,7 +91,7 @@ public class Main_control : MonoBehaviour
         //When AR status is object_is_placed
         else if (Config.ar_statu == AR_statu.object_is_placed)
         {
-            if (messageSignal == 1)
+            /*if (messageSignal == 1)
             {
                 //watsonService = new watsonNLUTTSIF(message);
                 watsonService.NLUAnalyze(message);
@@ -96,6 +99,31 @@ public class Main_control : MonoBehaviour
                 //message = string.Empty;
                 messageSignal++;
                 watsonService.soundTTS(message);
+            }*/
+            if (messageSignal == 1)
+            {
+                //watsonService = new watsonNLUTTSIF(message);
+                // watsonService.NLUAnalyze(message); 
+                // //watsonService.soundTTS();
+                // //message = string.Empty;
+                // messageSignal++;
+                // watsonService.soundTTS(message);
+                try
+                {
+                    //watsonService = new watsonNLUTTSIF(message);
+                    watsonService.NLUAnalyze(message);
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("watsonService.NLUAnalyze() Exception:" + e.Message);
+                }
+                finally
+                {
+                    //watsonService.soundTTS();
+                    //message = string.Empty;
+                    messageSignal++;
+                    watsonService.soundTTS(message);
+                }
             }
             else if (messageSignal == 0)
             {
