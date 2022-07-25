@@ -138,8 +138,9 @@ public class WasonNLU
                 analyzeResponse = response.Result;
             },
             features: features,
-            text: nluText
-            //url: serviceUrl
+            text: nluText,
+            language: "en"
+        //url: serviceUrl
         );
         //Debug.Log("NLU"+emotionResult);
         while (analyzeResponse == null)
