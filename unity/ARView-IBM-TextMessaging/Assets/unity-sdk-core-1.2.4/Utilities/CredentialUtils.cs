@@ -221,8 +221,8 @@ namespace IBM.Cloud.SDK.Utilities
                 serviceName = serviceName.ToUpper();
                 foreach (DictionaryEntry de in environmentVariables)
                 {
-                    string key = de.Key.ToString();
-                    string value = de.Value.ToString();
+                    string key = de.Key?.ToString();
+                    string value = de.Value?.ToString();
 
                     if (key.StartsWith(serviceName + "_"))
                     {
