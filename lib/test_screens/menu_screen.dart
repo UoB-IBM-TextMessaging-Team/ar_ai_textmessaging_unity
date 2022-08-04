@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MenuScreen extends StatelessWidget {
   @override
@@ -17,7 +18,7 @@ class MenuScreen extends StatelessWidget {
                   color: Colors.grey,
                   child: Container(
                     width: double.infinity,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -43,7 +44,7 @@ class MenuScreen extends StatelessWidget {
                   color: Colors.grey,
                   child: Container(
                     width: double.infinity,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,

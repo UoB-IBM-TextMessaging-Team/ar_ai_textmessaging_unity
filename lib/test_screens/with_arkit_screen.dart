@@ -15,7 +15,8 @@ class CustomPopupMenu {
 }
 
 List<CustomPopupMenu> choices = <CustomPopupMenu>[
-  CustomPopupMenu(title: 'AR Demo', scene: 0),
+  CustomPopupMenu(title: 'MainAR', scene: 0),
+  CustomPopupMenu(title: 'Show', scene: 1),
 ];
 
 class _WithARkitScreenState extends State<WithARkitScreen> {
