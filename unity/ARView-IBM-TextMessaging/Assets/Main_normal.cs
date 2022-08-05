@@ -13,6 +13,7 @@ public class Main_normal : MonoBehaviour
 {
     [Header("AR Object To Place")]
     public GameObject objectToPlace;
+    public string nluLanguage = 'en';
 
     [Header("Message Input")]
     public TMP_InputField messageInput;
